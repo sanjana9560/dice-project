@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="Ludo-game">🎲 Ludo Game 🎲</h1>
+    <div class="container">
+    <div id="player1">
+        <p class="heading">player 1</p>
+        <img src="image/1.png" alt="" id="pic1">
+    </div>
+    <div id="player2">
+        <p class="heading">player 2</p>
+        <img src="image/6.png" alt="" id="pic2">
+    </div>
+</div>
+
+
+    <button onclick="ludogame()" id="button">Start</button>
+
+    <script >
+        ludogame = ()=>{
+        const play1 =Math.floor(Math.random()*6)+1;
+        const playdice=`image/${play1}.png`;
+        document.getElementById("pic1").setAttribute('src',playdice);
+
+        const play2 =Math.floor(Math.random()*6)+1;
+        const play1dice=`image/${play2}.png`;
+        document.getElementById("pic2").setAttribute('src',play1dice);
+
+        if (play1>play2){
+            document.querySelector('h1').innerHTML="player1 won:";
+        }
+        else if (play1<play2){
+            document.querySelector('h1').innerHTML="player2 won:";
+        }else{
+             document.querySelector('h1').innerHTML="Drow:";
+        }
+
+        let audio=new Audio('b.mp3');
+        audio.play();
+
+        }    
+    </script>
+
+</body>
+</html>
